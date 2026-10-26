@@ -1,0 +1,214 @@
+/* ==========================================================================
+   navbar.css — Navigation bar styles
+   ========================================================================== */
+
+.navbar {
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  background-color: rgba(255, 255, 255, 0.95);
+  backdrop-filter: blur(8px);
+  border-bottom: 1px solid var(--color-border);
+  box-shadow: var(--shadow-sm);
+  transition: box-shadow var(--transition-fast);
+}
+
+.navbar.scrolled {
+  box-shadow: var(--shadow-md);
+  background-color: rgba(255, 255, 255, 0.97);
+}
+
+.navbar-container {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  height: 4.5rem;
+  gap: var(--space-sm);
+}
+
+/* Logo / brand */
+.navbar-brand {
+  display: flex;
+  align-items: center;
+  gap: var(--space-xs);
+  font-family: var(--font-heading);
+  font-size: 1.25rem;
+  font-weight: 700;
+  color: var(--color-text-dark);
+}
+
+.navbar-brand .logo-icon {
+  width: 2rem;
+  height: 2rem;
+  color: var(--color-primary);
+}
+
+.navbar-brand .logo-dot {
+  color: var(--color-mint);
+}
+
+/* Desktop nav links */
+.navbar-nav {
+  display: none;
+}
+
+.navbar-nav ul {
+  display: flex;
+  align-items: center;
+  gap: var(--space-md);
+}
+
+.navbar-nav a {
+  font-family: var(--font-heading);
+  font-weight: 500;
+  font-size: 0.95rem;
+  color: var(--color-text-dark);
+  padding: 0.5rem 0.75rem;
+  border-radius: var(--radius-sm);
+  position: relative;
+  transition: var(--transition-fast);
+}
+
+.navbar-nav a:hover,
+.navbar-nav a:focus-visible {
+  color: var(--color-primary);
+}
+
+.navbar-nav a::after {
+  content: '';
+  position: absolute;
+  bottom: 0.35rem;
+  left: 0.75rem;
+  right: 0.75rem;
+  height: 2px;
+  background-color: var(--color-primary);
+  transform: scaleX(0);
+  transform-origin: right;
+  transition: transform 250ms ease;
+  border-radius: 1px;
+}
+
+.navbar-nav a:hover::after,
+.navbar-nav a:focus-visible::after,
+.navbar-nav a.active::after {
+  transform: scaleX(1);
+  transform-origin: left;
+}
+
+.navbar-nav a.active {
+  color: var(--color-primary);
+}
+
+/* Hamburger button (mobile) */
+.navbar-toggle {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+  width: 2.5rem;
+  height: 2rem;
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  padding: 0;
+  transition: var(--transition-fast);
+}
+
+.navbar-toggle:focus-visible {
+  outline: 2px solid var(--color-primary);
+  outline-offset: 2px;
+  border-radius: var(--radius-sm);
+}
+
+.navbar-toggle .bar {
+  display: block;
+  width: 100%;
+  height: 2.5px;
+  background-color: var(--color-text-dark);
+  border-radius: 2px;
+  transition: transform 250ms ease, opacity 250ms ease;
+  transform-origin: center;
+}
+
+/* Mobile menu overlay */
+.navbar-menu {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100vh;
+  background-color: rgba(255, 255, 255, 0.97);
+  backdrop-filter: blur(8px);
+  display: flex;
+  flex-direction: column;
+  padding: var(--space-lg);
+  gap: var(--space-lg);
+  transform: translateX(-100%);
+  transition: transform 300ms ease;
+  z-index: 99;
+  overflow-y: auto;
+}
+
+.navbar-menu.open {
+  transform: translateX(0);
+}
+
+.navbar-menu .menu-close {
+  align-self: flex-end;
+  font-size: 1.5rem;
+  color: var(--color-text-dark);
+  cursor: pointer;
+}
+
+.navbar-menu ul {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-md);
+  width: 100%;
+}
+
+.navbar-menu a {
+  font-family: var(--font-heading);
+  font-weight: 600;
+  font-size: 1.25rem;
+  color: var(--color-text-dark);
+  padding: var(--space-sm);
+  border-radius: var(--radius-md);
+  text-align: center;
+  transition: var(--transition-fast);
+}
+
+.navbar-menu a:hover,
+.navbar-menu a:focus-visible {
+  background-color: var(--color-bg-alt);
+  color: var(--color-primary);
+}
+
+/* ——— Tablet and up ——— */
+@media (min-width: 768px) {
+  .navbar-toggle {
+    display: none;
+  }
+
+  .navbar-menu {
+    position: static;
+    width: auto;
+    height: auto;
+    background: transparent;
+    backdrop-filter: none;
+    display: block;
+    transform: none;
+    padding: 0;
+    gap: 0;
+    overflow: visible;
+    z-index: auto;
+  }
+
+  .navbar-menu.open {
+    display: none;
+  }
+
+  .navbar-nav {
+    display: block;
+  }
+}
