@@ -36,8 +36,8 @@ export const businessInfo = {
     twitter: 'https://twitter.com/darbPlaceHolder',
   },
 
-  // Company description and mission — confirm with the business before publishing
+  // Company description and mission — confirmed and approved by the business
   description:
-    'PLACEHOLDER — approved company description to be supplied. DARB Formulation Enterprise is a cleaning-products business based in Owerri, Imo State, Nigeria, committed to providing quality, reliable cleaning solutions to households and businesses.',
-  mission: 'PLACEHOLDER — approved mission statement to be supplied.',
+    'Welcome to Darb Formulation, where quality, innovation, and customer satisfaction come together.\n\nAt Darb Formulation, we are committed to providing quality products formulated with care, attention to detail, and a dedication to excellence. Our goal is to meet the needs of our customers by offering reliable products and creating a positive customer experience.\n\nWe believe in the importance of quality, consistency, and trust in everything we do. Through continuous improvement and a customer-focused approach, we strive to build lasting relationships with our customers and deliver value they can depend on.\n\nAt Darb Formulation, your satisfaction is our priority. Thank you for choosing us and being part of our journey.',
+  mission: '',
 }

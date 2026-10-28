@@ -15,17 +15,16 @@ export default function AboutSection() {
 
             <h3>Quality Cleaning Solutions Based in Owerri</h3>
 
-            <p>{businessInfo.description}</p>
-
-            <p style={{ marginTop: 'var(--space-sm)' }}>
-              {businessInfo.mission}
-            </p>
+            {businessInfo.description.split('\n\n').map((para, idx) => (
+              <p key={idx}>{para}</p>
+            ))}
 
             <div className="about-location" style={{ marginTop: 'var(--space-md)' }}>
               <LocationIcon />
               <span>
-                {businessInfo.location.address}, {businessInfo.location.city},
-                {businessInfo.location.state}, {businessInfo.location.country}
+                {businessInfo.location.address.startsWith('PLACEHOLDER')
+                  ? `${businessInfo.location.city}, ${businessInfo.location.state}, ${businessInfo.location.country}`
+                  : `${businessInfo.location.address}, ${businessInfo.location.city}, ${businessInfo.location.state}, ${businessInfo.location.country}`}
               </span>
             </div>
           </div>
